@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F134CBE24FD4EB100FA195B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CBD24FD4EB100FA195B /* String+Extensions.swift */; };
+		5F134CC124FD4F1500FA195B /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */; };
+		5F134CC324FD6ACB00FA195B /* Martian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC224FD6ACB00FA195B /* Martian.swift */; };
+		5FDB323224FB664D00D822C6 /* TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDB323124FB664D00D822C6 /* TranslatorTests.swift */; };
 		5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */; };
 		5FE5D4D724F9960F00DBC06B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D4D524F9960F00DBC06B /* Main.storyboard */; };
 		5FE5D4D924F9961200DBC06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D4D824F9961200DBC06B /* Assets.xcassets */; };
@@ -17,7 +21,6 @@
 		5FE5D4FF24FB0D2000DBC06B /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4FE24FB0D2000DBC06B /* ArticleDetailViewModel.swift */; };
 		5FE5D50224FB0D3A00DBC06B /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D50024FB0D3A00DBC06B /* ArticleDetailViewController.swift */; };
 		5FE5D50324FB0D3A00DBC06B /* ArticleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D50124FB0D3A00DBC06B /* ArticleDetailViewController.xib */; };
-		5FE5D50724FB0D6A00DBC06B /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D50624FB0D6A00DBC06B /* TranslationManager.swift */; };
 		5FE5D50924FB0DB400DBC06B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D50824FB0DB400DBC06B /* Provider.swift */; };
 		5FE5D50B24FB0EFB00DBC06B /* RemoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D50A24FB0EFB00DBC06B /* RemoteProvider.swift */; };
 		5FE5D50D24FB100400DBC06B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D50C24FB100400DBC06B /* NetworkError.swift */; };
@@ -28,6 +31,8 @@
 		5FE5D51E24FB2D8D00DBC06B /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D51D24FB2D8D00DBC06B /* FeedServiceTests.swift */; };
 		5FE5D52024FB2E3600DBC06B /* TestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D51F24FB2E3600DBC06B /* TestBundle.swift */; };
 		5FE5D52424FB2EED00DBC06B /* mock_feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D52324FB2EED00DBC06B /* mock_feed.json */; };
+		5FE5D52724FB356000DBC06B /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D52624FB356000DBC06B /* Language.swift */; };
+		5FE5D52924FB376600DBC06B /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D52824FB376600DBC06B /* Translator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F134CBD24FD4EB100FA195B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
+		5F134CC224FD6ACB00FA195B /* Martian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Martian.swift; sourceTree = "<group>"; };
+		5FDB323124FB664D00D822C6 /* TranslatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorTests.swift; sourceTree = "<group>"; };
 		5FE5D4CC24F9960F00DBC06B /* MarsTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE5D4D624F9960F00DBC06B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,7 +64,6 @@
 		5FE5D4FE24FB0D2000DBC06B /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
 		5FE5D50024FB0D3A00DBC06B /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		5FE5D50124FB0D3A00DBC06B /* ArticleDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailViewController.xib; sourceTree = "<group>"; };
-		5FE5D50624FB0D6A00DBC06B /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
 		5FE5D50824FB0DB400DBC06B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		5FE5D50A24FB0EFB00DBC06B /* RemoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProvider.swift; sourceTree = "<group>"; };
 		5FE5D50C24FB100400DBC06B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -66,6 +74,8 @@
 		5FE5D51D24FB2D8D00DBC06B /* FeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceTests.swift; sourceTree = "<group>"; };
 		5FE5D51F24FB2E3600DBC06B /* TestBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBundle.swift; sourceTree = "<group>"; };
 		5FE5D52324FB2EED00DBC06B /* mock_feed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_feed.json; sourceTree = "<group>"; };
+		5FE5D52624FB356000DBC06B /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		5FE5D52824FB376600DBC06B /* Translator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F134CBC24FD4EA100FA195B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CBD24FD4EB100FA195B /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5F134CBF24FD4EF900FA195B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FDB323024FB663700D822C6 /* Translations */ = {
+			isa = PBXGroup;
+			children = (
+				5FDB323124FB664D00D822C6 /* TranslatorTests.swift */,
+			);
+			path = Translations;
+			sourceTree = "<group>";
+		};
+		5FDB323324FD49BB00D822C6 /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				5FE5D52824FB376600DBC06B /* Translator.swift */,
+			);
+			path = Translator;
+			sourceTree = "<group>";
+		};
 		5FE5D4C324F9960F00DBC06B = {
 			isa = PBXGroup;
 			children = (
@@ -110,9 +152,10 @@
 				5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */,
 				5FE5D4F524FB0CC900DBC06B /* Features */,
 				5FE5D51924FB27C900DBC06B /* Models */,
-				5FE5D50524FB0D5000DBC06B /* Managers */,
 				5FE5D50424FB0D4100DBC06B /* Networking */,
 				5FE5D51024FB189600DBC06B /* Services */,
+				5FE5D52524FB354900DBC06B /* Languages */,
+				5F134CBC24FD4EA100FA195B /* Extensions */,
 				5FE5D4D524F9960F00DBC06B /* Main.storyboard */,
 				5FE5D4D824F9961200DBC06B /* Assets.xcassets */,
 				5FE5D4DA24F9961200DBC06B /* LaunchScreen.storyboard */,
@@ -124,6 +167,8 @@
 		5FE5D4E524F9961200DBC06B /* MarsTimesTests */ = {
 			isa = PBXGroup;
 			children = (
+				5F134CBF24FD4EF900FA195B /* Extensions */,
+				5FDB323024FB663700D822C6 /* Translations */,
 				5FE5D51F24FB2E3600DBC06B /* TestBundle.swift */,
 				5FE5D51C24FB2D6500DBC06B /* Services */,
 				5FE5D4E824F9961200DBC06B /* Info.plist */,
@@ -172,14 +217,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		5FE5D50524FB0D5000DBC06B /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				5FE5D50624FB0D6A00DBC06B /* TranslationManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		5FE5D51024FB189600DBC06B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +248,16 @@
 				5FE5D52324FB2EED00DBC06B /* mock_feed.json */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		5FE5D52524FB354900DBC06B /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				5FDB323324FD49BB00D822C6 /* Translator */,
+				5FE5D52624FB356000DBC06B /* Language.swift */,
+				5F134CC224FD6ACB00FA195B /* Martian.swift */,
+			);
+			path = Languages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,13 +367,16 @@
 			files = (
 				5FE5D4F324FB0CBE00DBC06B /* FeedViewController.swift in Sources */,
 				5FE5D51824FB25ED00DBC06B /* Request.swift in Sources */,
-				5FE5D50724FB0D6A00DBC06B /* TranslationManager.swift in Sources */,
+				5FE5D52724FB356000DBC06B /* Language.swift in Sources */,
 				5FE5D50F24FB10AD00DBC06B /* LocalProvider.swift in Sources */,
+				5F134CC324FD6ACB00FA195B /* Martian.swift in Sources */,
 				5FE5D50924FB0DB400DBC06B /* Provider.swift in Sources */,
 				5FE5D4FD24FB0D0F00DBC06B /* FeedViewModel.swift in Sources */,
+				5FE5D52924FB376600DBC06B /* Translator.swift in Sources */,
 				5FE5D51424FB18C400DBC06B /* FeedService.swift in Sources */,
 				5FE5D4FF24FB0D2000DBC06B /* ArticleDetailViewModel.swift in Sources */,
 				5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */,
+				5F134CBE24FD4EB100FA195B /* String+Extensions.swift in Sources */,
 				5FE5D50D24FB100400DBC06B /* NetworkError.swift in Sources */,
 				5FE5D50B24FB0EFB00DBC06B /* RemoteProvider.swift in Sources */,
 				5FE5D51B24FB27E700DBC06B /* Article.swift in Sources */,
@@ -338,7 +388,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F134CC124FD4F1500FA195B /* StringExtensionsTests.swift in Sources */,
 				5FE5D51E24FB2D8D00DBC06B /* FeedServiceTests.swift in Sources */,
+				5FDB323224FB664D00D822C6 /* TranslatorTests.swift in Sources */,
 				5FE5D52024FB2E3600DBC06B /* TestBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
