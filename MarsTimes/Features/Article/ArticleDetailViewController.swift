@@ -10,21 +10,45 @@ import UIKit
 
 class ArticleDetailViewController: UIViewController {
 
+    @IBOutlet var articleImageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var bodyLabel: UILabel!
+    @IBOutlet var titleContainerView: UIView!
+    @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
+
+    var viewModel: ArticleItemViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setup() {
+        setupViewModel()
+        setupViews()
     }
-    */
 
+    private func setupViewModel() {
+        articleImageView.image = viewModel.image
+        updateImageViewHeight(with: viewModel.image)
+
+        titleLabel.text = viewModel.title
+        bodyLabel.text = viewModel.body
+    }
+
+    private func setupViews() {
+        titleContainerView.layer.borderWidth = 3
+        titleContainerView.layer.borderColor = UIColor.lightGray.cgColor
+
+        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        bodyLabel.font = .preferredFont(forTextStyle: .body)
+    }
+
+    private func updateImageViewHeight(with image: UIImage?) {
+        guard let image = image else { return }
+        let ratio = image.size.width / image.size.height
+        let newHeight = articleImageView.frame.width / ratio
+        imageHeightConstraint.constant = newHeight
+        view.layoutIfNeeded()
+    }
 }

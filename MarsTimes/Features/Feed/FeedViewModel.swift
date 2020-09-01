@@ -14,6 +14,7 @@ class FeedViewModel {
 
     var reloadFeed: (() -> Void)? = nil
     var isLoadingFeed: ((Bool) -> Void)? = nil
+    var openFeedItem: ((FeedItemType) -> Void)? = nil
 
     var feedItemCount: Int {
         return feedItem.count
@@ -54,6 +55,9 @@ class FeedViewModel {
 
     func didSelectFeedItem(at indexPath: IndexPath) {
         guard let feedItem = getFeedItem(at: indexPath) else { return }
-        // TODO: Present feed item
+
+        if let feedItem = feedItem as? ArticleItemViewModel {
+            openFeedItem?(.article(feedItem))
+        }
     }
 }

@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum FeedItemType {
+    case article(ArticleItemViewModel)
+}
+
 protocol FeedItem {
     var cellIdentifier: String { get }
 }

@@ -27,7 +27,6 @@
 		5FE5D4F324FB0CBE00DBC06B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4F124FB0CBE00DBC06B /* FeedViewController.swift */; };
 		5FE5D4F424FB0CBE00DBC06B /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D4F224FB0CBE00DBC06B /* FeedViewController.xib */; };
 		5FE5D4FD24FB0D0F00DBC06B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4FC24FB0D0F00DBC06B /* FeedViewModel.swift */; };
-		5FE5D4FF24FB0D2000DBC06B /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4FE24FB0D2000DBC06B /* ArticleDetailViewModel.swift */; };
 		5FE5D50224FB0D3A00DBC06B /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D50024FB0D3A00DBC06B /* ArticleDetailViewController.swift */; };
 		5FE5D50324FB0D3A00DBC06B /* ArticleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D50124FB0D3A00DBC06B /* ArticleDetailViewController.xib */; };
 		5FE5D50924FB0DB400DBC06B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D50824FB0DB400DBC06B /* Provider.swift */; };
@@ -79,7 +78,6 @@
 		5FE5D4F124FB0CBE00DBC06B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		5FE5D4F224FB0CBE00DBC06B /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
 		5FE5D4FC24FB0D0F00DBC06B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
-		5FE5D4FE24FB0D2000DBC06B /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
 		5FE5D50024FB0D3A00DBC06B /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		5FE5D50124FB0D3A00DBC06B /* ArticleDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailViewController.xib; sourceTree = "<group>"; };
 		5FE5D50824FB0DB400DBC06B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 		5FE5D4FB24FB0CF900DBC06B /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				5FE5D4FE24FB0D2000DBC06B /* ArticleDetailViewModel.swift */,
 				5FE5D50024FB0D3A00DBC06B /* ArticleDetailViewController.swift */,
 				5FE5D50124FB0D3A00DBC06B /* ArticleDetailViewController.xib */,
 			);
@@ -423,7 +420,6 @@
 				5FE5D52924FB376600DBC06B /* Translator.swift in Sources */,
 				5F134CDA24FE023500FA195B /* ImageFeedItem.swift in Sources */,
 				5FE5D51424FB18C400DBC06B /* FeedService.swift in Sources */,
-				5FE5D4FF24FB0D2000DBC06B /* ArticleDetailViewModel.swift in Sources */,
 				5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */,
 				5F134CBE24FD4EB100FA195B /* String+Extensions.swift in Sources */,
 				5FE5D50D24FB100400DBC06B /* NetworkError.swift in Sources */,

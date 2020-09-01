@@ -49,6 +49,12 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
+
+        viewModel.openFeedItem = { [weak self] feedItemType in
+            DispatchQueue.main.async { [weak self] in
+                self?.presentFeedItem(with: feedItemType)
+            }
+        }
     }
 
     private func setupNavigationBar() {
@@ -67,6 +73,15 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @objc private func refreshFeed() {
         viewModel.loadFeed(type: .refresh)
+    }
+
+    private func presentFeedItem(with feedItemType: FeedItemType) {
+        switch feedItemType {
+        case .article(let itemViewModel):
+            let articleDetailViewController = ArticleDetailViewController()
+            articleDetailViewController.viewModel = itemViewModel
+            navigationController?.pushViewController(articleDetailViewController, animated: true)
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

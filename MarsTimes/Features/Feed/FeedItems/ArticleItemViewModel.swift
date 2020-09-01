@@ -13,6 +13,7 @@ class ArticleItemViewModel: ImageFeedItem {
 
     private let article: Article
     private let imageService: ImageServicing
+    private(set) var image: UIImage?
 
     var title: String {
         return article.title
@@ -40,6 +41,7 @@ class ArticleItemViewModel: ImageFeedItem {
         isLoadingImage?(true)
         imageService.loadImage(url: topImageInfo.url) { [weak self] (image) in
             self?.isLoadingImage?(false)
+            self?.image = image
             self?.imageUpdater?(image)
         }
     }
