@@ -8,23 +8,82 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet var feedTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    private let viewModel = FeedViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadFeed()
     }
-    */
 
+    private func setup() {
+        setupViewModel()
+        setupTableView()
+        setupNavigationBar()
+    }
+
+    private func setupViewModel() {
+        viewModel.reloadFeed = { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.feedTableView.reloadData()
+            }
+        }
+
+        viewModel.isLoadingFeed = { [weak self] isLoading in
+            DispatchQueue.main.async { [weak self] in
+                if isLoading {
+                    self?.activityIndicator.startAnimating()
+                } else {
+                    self?.activityIndicator.stopAnimating()
+                }
+            }
+        }
+    }
+
+    private func setupNavigationBar() {
+        
+    }
+
+    private func setupTableView() {
+        feedTableView.delegate = self
+        feedTableView.dataSource = self
+        feedTableView.register(UINib(nibName: ArticleFeedCell.identifier, bundle: nil),
+                               forCellReuseIdentifier: ArticleFeedCell.identifier)
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.feedItemCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let feedItem = viewModel.getFeedItem(at: indexPath) else {
+            fatalError("Expecting a feedItem at index path: \(indexPath)")
+        }
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: feedItem.cellIdentifier, for: indexPath)
+
+        if let cell = cell as? FeedCell {
+            cell.configure(with: feedItem)
+        }
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let feedItem = viewModel.getFeedItem(at: indexPath) as? ImageFeedItem else { return }
+        feedItem.loadImage()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectFeedItem(at: indexPath)
+    }
 }

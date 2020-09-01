@@ -10,6 +10,14 @@
 		5F134CBE24FD4EB100FA195B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CBD24FD4EB100FA195B /* String+Extensions.swift */; };
 		5F134CC124FD4F1500FA195B /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */; };
 		5F134CC324FD6ACB00FA195B /* Martian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC224FD6ACB00FA195B /* Martian.swift */; };
+		5F134CC624FDA35200FA195B /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC524FDA35200FA195B /* FeedCell.swift */; };
+		5F134CC924FDA38100FA195B /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC824FDA38100FA195B /* FeedItem.swift */; };
+		5F134CCB24FDA42E00FA195B /* ArticleItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CCA24FDA42E00FA195B /* ArticleItemViewModel.swift */; };
+		5F134CCF24FDA45A00FA195B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CCE24FDA45A00FA195B /* UIView+Extensions.swift */; };
+		5F134CD224FDF33000FA195B /* ArticleFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CD024FDF33000FA195B /* ArticleFeedCell.swift */; };
+		5F134CD324FDF33000FA195B /* ArticleFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F134CD124FDF33000FA195B /* ArticleFeedCell.xib */; };
+		5F134CD524FDFAD700FA195B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CD424FDFAD700FA195B /* ImageService.swift */; };
+		5F134CDA24FE023500FA195B /* ImageFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CD924FE023500FA195B /* ImageFeedItem.swift */; };
 		5FDB323224FB664D00D822C6 /* TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDB323124FB664D00D822C6 /* TranslatorTests.swift */; };
 		5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */; };
 		5FE5D4D724F9960F00DBC06B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D4D524F9960F00DBC06B /* Main.storyboard */; };
@@ -49,6 +57,14 @@
 		5F134CBD24FD4EB100FA195B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		5F134CC224FD6ACB00FA195B /* Martian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Martian.swift; sourceTree = "<group>"; };
+		5F134CC524FDA35200FA195B /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		5F134CC824FDA38100FA195B /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		5F134CCA24FDA42E00FA195B /* ArticleItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItemViewModel.swift; sourceTree = "<group>"; };
+		5F134CCE24FDA45A00FA195B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		5F134CD024FDF33000FA195B /* ArticleFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFeedCell.swift; sourceTree = "<group>"; };
+		5F134CD124FDF33000FA195B /* ArticleFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleFeedCell.xib; sourceTree = "<group>"; };
+		5F134CD424FDFAD700FA195B /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		5F134CD924FE023500FA195B /* ImageFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedItem.swift; sourceTree = "<group>"; };
 		5FDB323124FB664D00D822C6 /* TranslatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorTests.swift; sourceTree = "<group>"; };
 		5FE5D4CC24F9960F00DBC06B /* MarsTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				5F134CBD24FD4EB100FA195B /* String+Extensions.swift */,
+				5F134CCE24FDA45A00FA195B /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -110,6 +127,26 @@
 				5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5F134CC424FDA33D00FA195B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CC524FDA35200FA195B /* FeedCell.swift */,
+				5F134CD024FDF33000FA195B /* ArticleFeedCell.swift */,
+				5F134CD124FDF33000FA195B /* ArticleFeedCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5F134CC724FDA36F00FA195B /* FeedItems */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CC824FDA38100FA195B /* FeedItem.swift */,
+				5F134CD924FE023500FA195B /* ImageFeedItem.swift */,
+				5F134CCA24FDA42E00FA195B /* ArticleItemViewModel.swift */,
+			);
+			path = FeedItems;
 			sourceTree = "<group>";
 		};
 		5FDB323024FB663700D822C6 /* Translations */ = {
@@ -188,6 +225,8 @@
 		5FE5D4F624FB0CD100DBC06B /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				5F134CC724FDA36F00FA195B /* FeedItems */,
+				5F134CC424FDA33D00FA195B /* Cells */,
 				5FE5D4F124FB0CBE00DBC06B /* FeedViewController.swift */,
 				5FE5D4F224FB0CBE00DBC06B /* FeedViewController.xib */,
 				5FE5D4FC24FB0D0F00DBC06B /* FeedViewModel.swift */,
@@ -221,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				5FE5D51324FB18C400DBC06B /* FeedService.swift */,
+				5F134CD424FDFAD700FA195B /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -342,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F134CD324FDF33000FA195B /* ArticleFeedCell.xib in Resources */,
 				5FE5D4DC24F9961200DBC06B /* LaunchScreen.storyboard in Resources */,
 				5FE5D4D924F9961200DBC06B /* Assets.xcassets in Resources */,
 				5FE5D4F424FB0CBE00DBC06B /* FeedViewController.xib in Resources */,
@@ -365,20 +406,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F134CCF24FDA45A00FA195B /* UIView+Extensions.swift in Sources */,
 				5FE5D4F324FB0CBE00DBC06B /* FeedViewController.swift in Sources */,
 				5FE5D51824FB25ED00DBC06B /* Request.swift in Sources */,
+				5F134CD224FDF33000FA195B /* ArticleFeedCell.swift in Sources */,
+				5F134CCB24FDA42E00FA195B /* ArticleItemViewModel.swift in Sources */,
+				5F134CC624FDA35200FA195B /* FeedCell.swift in Sources */,
 				5FE5D52724FB356000DBC06B /* Language.swift in Sources */,
 				5FE5D50F24FB10AD00DBC06B /* LocalProvider.swift in Sources */,
 				5F134CC324FD6ACB00FA195B /* Martian.swift in Sources */,
 				5FE5D50924FB0DB400DBC06B /* Provider.swift in Sources */,
 				5FE5D4FD24FB0D0F00DBC06B /* FeedViewModel.swift in Sources */,
 				5FE5D52924FB376600DBC06B /* Translator.swift in Sources */,
+				5F134CDA24FE023500FA195B /* ImageFeedItem.swift in Sources */,
 				5FE5D51424FB18C400DBC06B /* FeedService.swift in Sources */,
 				5FE5D4FF24FB0D2000DBC06B /* ArticleDetailViewModel.swift in Sources */,
 				5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */,
 				5F134CBE24FD4EB100FA195B /* String+Extensions.swift in Sources */,
 				5FE5D50D24FB100400DBC06B /* NetworkError.swift in Sources */,
+				5F134CC924FDA38100FA195B /* FeedItem.swift in Sources */,
 				5FE5D50B24FB0EFB00DBC06B /* RemoteProvider.swift in Sources */,
+				5F134CD524FDFAD700FA195B /* ImageService.swift in Sources */,
 				5FE5D51B24FB27E700DBC06B /* Article.swift in Sources */,
 				5FE5D50224FB0D3A00DBC06B /* ArticleDetailViewController.swift in Sources */,
 			);

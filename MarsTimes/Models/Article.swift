@@ -12,6 +12,12 @@ struct Article: Decodable {
     let title: String
     let images: [ArticleImageInfo]
     let body: String
+
+    var topImageInfo: ArticleImageInfo? {
+        return images.first {
+            $0.isTopImage
+        }
+    }
 }
 
 struct ArticleImageInfo: Decodable {

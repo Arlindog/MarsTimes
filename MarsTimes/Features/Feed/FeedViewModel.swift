@@ -9,20 +9,46 @@
 import Foundation
 
 class FeedViewModel {
-    let feedService: FeedService
+    private let feedService: FeedService
+    private var feedItem: [FeedItem] = []
+
+    var reloadFeed: (() -> Void)? = nil
+    var isLoadingFeed: ((Bool) -> Void)? = nil
+
+    var feedItemCount: Int {
+        return feedItem.count
+    }
 
     init(feedService: FeedService = .shared) {
         self.feedService = feedService
     }
 
     func loadFeed() {
-        feedService.fetchFeed { result in
+        isLoadingFeed?(true)
+        feedService.fetchFeed { [weak self] result in
+            self?.isLoadingFeed?(false)
             switch result {
             case .success(let articles):
-                print(articles.count)
+                self?.feedItem = articles.map {
+                    ArticleItemViewModel(article: $0)
+                }
+                self?.reloadFeed?()
             case .failure(let error):
                 print("Error loading feed: \(error)")
             }
         }
+    }
+
+    func getFeedItem(at indexPath: IndexPath) -> FeedItem? {
+        guard
+            indexPath.section == 0,
+            indexPath.item >= 0 && indexPath.item < feedItemCount
+            else { return nil }
+        return feedItem[indexPath.item]
+    }
+
+    func didSelectFeedItem(at indexPath: IndexPath) {
+        guard let feedItem = getFeedItem(at: indexPath) else { return }
+        // TODO: Present feed item
     }
 }
