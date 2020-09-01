@@ -26,6 +26,7 @@ class ArticleDetailViewController: UIViewController {
     private func setup() {
         setupViewModel()
         setupViews()
+        setupNavigationBar()
     }
 
     private func setupViewModel() {
@@ -42,6 +43,16 @@ class ArticleDetailViewController: UIViewController {
 
         titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
         bodyLabel.font = .preferredFont(forTextStyle: .body)
+    }
+
+    private func setupNavigationBar() {
+        let settingsItem = UIBarButtonItem(title: "Settings", style: .done, target: self, action: #selector(openSettings))
+        navigationItem.rightBarButtonItem = settingsItem
+    }
+
+    @objc private func openSettings() {
+        let settingsViewController = SettingsViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
 
     private func updateImageViewHeight(with image: UIImage?) {

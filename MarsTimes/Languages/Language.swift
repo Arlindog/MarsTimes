@@ -18,13 +18,21 @@ protocol LanguageType {
     static func translate(_ string: String) -> String
 }
 
-enum Language {
-    case martian
+enum Language: String {
+    static let supportedLanguages: [Language] = [
+        .english,
+        .martian
+    ]
+
+    case english = "English"
+    case martian = "Martian"
 }
 
 extension Language {
     func translate(_ string: String) -> String {
         switch self {
+        case .english:
+            return string
         case .martian:
             return Martian.translate(string)
         }

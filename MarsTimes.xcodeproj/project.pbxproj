@@ -19,6 +19,20 @@
 		5F134CD524FDFAD700FA195B /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CD424FDFAD700FA195B /* ImageService.swift */; };
 		5F134CDA24FE023500FA195B /* ImageFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CD924FE023500FA195B /* ImageFeedItem.swift */; };
 		5F134CE224FEA87E00FA195B /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CE124FEA87E00FA195B /* RequestType.swift */; };
+		5F134CE624FEB27900FA195B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CE424FEB27900FA195B /* SettingsViewController.swift */; };
+		5F134CE724FEB27900FA195B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F134CE524FEB27900FA195B /* SettingsViewController.xib */; };
+		5F134CEA24FEB38800FA195B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CE924FEB38800FA195B /* SettingsViewModel.swift */; };
+		5F134CED24FEB3AE00FA195B /* LanguageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CEC24FEB3AE00FA195B /* LanguageGroup.swift */; };
+		5F134CF224FEB3FD00FA195B /* LanguageSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CF124FEB3FD00FA195B /* LanguageSettingsItem.swift */; };
+		5F134CF424FEB41800FA195B /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CF324FEB41800FA195B /* SettingItem.swift */; };
+		5F134CF824FEB44200FA195B /* LanguageSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CF624FEB44200FA195B /* LanguageSettingCell.swift */; };
+		5F134CF924FEB44200FA195B /* LanguageSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F134CF724FEB44200FA195B /* LanguageSettingCell.xib */; };
+		5F134CFB24FEB44B00FA195B /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CFA24FEB44B00FA195B /* SettingCell.swift */; };
+		5F134CFD24FEB79F00FA195B /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CFC24FEB79F00FA195B /* LanguageManager.swift */; };
+		5F134CFF24FEB81700FA195B /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CFE24FEB81700FA195B /* UserDefaults+Extensions.swift */; };
+		5F134D0124FEBA4E00FA195B /* SettingGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134D0024FEBA4E00FA195B /* SettingGroup.swift */; };
+		5F134D0324FEBA9C00FA195B /* LanguageSettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134D0224FEBA9C00FA195B /* LanguageSettingsHeaderView.swift */; };
+		5F134D0624FEBD3800FA195B /* ActionableSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134D0524FEBD3800FA195B /* ActionableSettingItem.swift */; };
 		5FDB323224FB664D00D822C6 /* TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDB323124FB664D00D822C6 /* TranslatorTests.swift */; };
 		5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */; };
 		5FE5D4D724F9960F00DBC06B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D4D524F9960F00DBC06B /* Main.storyboard */; };
@@ -66,6 +80,20 @@
 		5F134CD424FDFAD700FA195B /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		5F134CD924FE023500FA195B /* ImageFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedItem.swift; sourceTree = "<group>"; };
 		5F134CE124FEA87E00FA195B /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		5F134CE424FEB27900FA195B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5F134CE524FEB27900FA195B /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		5F134CE924FEB38800FA195B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		5F134CEC24FEB3AE00FA195B /* LanguageGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageGroup.swift; sourceTree = "<group>"; };
+		5F134CF124FEB3FD00FA195B /* LanguageSettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsItem.swift; sourceTree = "<group>"; };
+		5F134CF324FEB41800FA195B /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		5F134CF624FEB44200FA195B /* LanguageSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingCell.swift; sourceTree = "<group>"; };
+		5F134CF724FEB44200FA195B /* LanguageSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSettingCell.xib; sourceTree = "<group>"; };
+		5F134CFA24FEB44B00FA195B /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		5F134CFC24FEB79F00FA195B /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		5F134CFE24FEB81700FA195B /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		5F134D0024FEBA4E00FA195B /* SettingGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGroup.swift; sourceTree = "<group>"; };
+		5F134D0224FEBA9C00FA195B /* LanguageSettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsHeaderView.swift; sourceTree = "<group>"; };
+		5F134D0524FEBD3800FA195B /* ActionableSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionableSettingItem.swift; sourceTree = "<group>"; };
 		5FDB323124FB664D00D822C6 /* TranslatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorTests.swift; sourceTree = "<group>"; };
 		5FE5D4CC24F9960F00DBC06B /* MarsTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +145,7 @@
 			children = (
 				5F134CBD24FD4EB100FA195B /* String+Extensions.swift */,
 				5F134CCE24FDA45A00FA195B /* UIView+Extensions.swift */,
+				5F134CFE24FEB81700FA195B /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -147,6 +176,65 @@
 				5F134CCA24FDA42E00FA195B /* ArticleItemViewModel.swift */,
 			);
 			path = FeedItems;
+			sourceTree = "<group>";
+		};
+		5F134CE324FEB26300FA195B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5F134D0424FEBBE900FA195B /* Protocols */,
+				5F134CEB24FEB3A500FA195B /* Groups */,
+				5F134CE424FEB27900FA195B /* SettingsViewController.swift */,
+				5F134CE524FEB27900FA195B /* SettingsViewController.xib */,
+				5F134CE924FEB38800FA195B /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5F134CEB24FEB3A500FA195B /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CEF24FEB3EC00FA195B /* Language */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		5F134CEF24FEB3EC00FA195B /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CF524FEB42C00FA195B /* Cells */,
+				5F134CF024FEB3F200FA195B /* Items */,
+				5F134CEC24FEB3AE00FA195B /* LanguageGroup.swift */,
+				5F134D0224FEBA9C00FA195B /* LanguageSettingsHeaderView.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		5F134CF024FEB3F200FA195B /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CF124FEB3FD00FA195B /* LanguageSettingsItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		5F134CF524FEB42C00FA195B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CF624FEB44200FA195B /* LanguageSettingCell.swift */,
+				5F134CF724FEB44200FA195B /* LanguageSettingCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5F134D0424FEBBE900FA195B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5F134CF324FEB41800FA195B /* SettingItem.swift */,
+				5F134CFA24FEB44B00FA195B /* SettingCell.swift */,
+				5F134D0024FEBA4E00FA195B /* SettingGroup.swift */,
+				5F134D0524FEBD3800FA195B /* ActionableSettingItem.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		5FDB323024FB663700D822C6 /* Translations */ = {
@@ -216,6 +304,7 @@
 		5FE5D4F524FB0CC900DBC06B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				5F134CE324FEB26300FA195B /* Settings */,
 				5FE5D4F624FB0CD100DBC06B /* Feed */,
 				5FE5D4FB24FB0CF900DBC06B /* Article */,
 			);
@@ -296,6 +385,7 @@
 				5FDB323324FD49BB00D822C6 /* Translator */,
 				5FE5D52624FB356000DBC06B /* Language.swift */,
 				5F134CC224FD6ACB00FA195B /* Martian.swift */,
+				5F134CFC24FEB79F00FA195B /* LanguageManager.swift */,
 			);
 			path = Languages;
 			sourceTree = "<group>";
@@ -384,9 +474,11 @@
 			files = (
 				5F134CD324FDF33000FA195B /* ArticleFeedCell.xib in Resources */,
 				5FE5D4DC24F9961200DBC06B /* LaunchScreen.storyboard in Resources */,
+				5F134CF924FEB44200FA195B /* LanguageSettingCell.xib in Resources */,
 				5FE5D4D924F9961200DBC06B /* Assets.xcassets in Resources */,
 				5FE5D4F424FB0CBE00DBC06B /* FeedViewController.xib in Resources */,
 				5FE5D50324FB0D3A00DBC06B /* ArticleDetailViewController.xib in Resources */,
+				5F134CE724FEB27900FA195B /* SettingsViewController.xib in Resources */,
 				5FE5D4D724F9960F00DBC06B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,25 +502,37 @@
 				5FE5D4F324FB0CBE00DBC06B /* FeedViewController.swift in Sources */,
 				5FE5D51824FB25ED00DBC06B /* Request.swift in Sources */,
 				5F134CD224FDF33000FA195B /* ArticleFeedCell.swift in Sources */,
+				5F134D0324FEBA9C00FA195B /* LanguageSettingsHeaderView.swift in Sources */,
 				5F134CCB24FDA42E00FA195B /* ArticleItemViewModel.swift in Sources */,
+				5F134CEA24FEB38800FA195B /* SettingsViewModel.swift in Sources */,
+				5F134CFD24FEB79F00FA195B /* LanguageManager.swift in Sources */,
 				5F134CC624FDA35200FA195B /* FeedCell.swift in Sources */,
 				5FE5D52724FB356000DBC06B /* Language.swift in Sources */,
+				5F134CFB24FEB44B00FA195B /* SettingCell.swift in Sources */,
+				5F134CFF24FEB81700FA195B /* UserDefaults+Extensions.swift in Sources */,
 				5FE5D50F24FB10AD00DBC06B /* LocalProvider.swift in Sources */,
+				5F134D0624FEBD3800FA195B /* ActionableSettingItem.swift in Sources */,
 				5F134CC324FD6ACB00FA195B /* Martian.swift in Sources */,
+				5F134CF224FEB3FD00FA195B /* LanguageSettingsItem.swift in Sources */,
 				5FE5D50924FB0DB400DBC06B /* Provider.swift in Sources */,
 				5FE5D4FD24FB0D0F00DBC06B /* FeedViewModel.swift in Sources */,
 				5FE5D52924FB376600DBC06B /* Translator.swift in Sources */,
 				5F134CDA24FE023500FA195B /* ImageFeedItem.swift in Sources */,
 				5FE5D51424FB18C400DBC06B /* FeedService.swift in Sources */,
+				5F134CED24FEB3AE00FA195B /* LanguageGroup.swift in Sources */,
 				5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */,
 				5F134CBE24FD4EB100FA195B /* String+Extensions.swift in Sources */,
 				5FE5D50D24FB100400DBC06B /* NetworkError.swift in Sources */,
+				5F134CF824FEB44200FA195B /* LanguageSettingCell.swift in Sources */,
 				5F134CC924FDA38100FA195B /* FeedItem.swift in Sources */,
+				5F134D0124FEBA4E00FA195B /* SettingGroup.swift in Sources */,
+				5F134CF424FEB41800FA195B /* SettingItem.swift in Sources */,
 				5FE5D50B24FB0EFB00DBC06B /* RemoteProvider.swift in Sources */,
 				5F134CD524FDFAD700FA195B /* ImageService.swift in Sources */,
 				5FE5D51B24FB27E700DBC06B /* Article.swift in Sources */,
 				5FE5D50224FB0D3A00DBC06B /* ArticleDetailViewController.swift in Sources */,
 				5F134CE224FEA87E00FA195B /* RequestType.swift in Sources */,
+				5F134CE624FEB27900FA195B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

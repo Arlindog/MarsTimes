@@ -58,7 +58,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     private func setupNavigationBar() {
-        
+        let settingsItem = UIBarButtonItem(title: "Settings", style: .done, target: self, action: #selector(openSettings))
+        navigationItem.rightBarButtonItem = settingsItem
     }
 
     private func setupTableView() {
@@ -73,6 +74,11 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @objc private func refreshFeed() {
         viewModel.loadFeed(type: .refresh)
+    }
+
+    @objc private func openSettings() {
+        let settingsViewController = SettingsViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
 
     private func presentFeedItem(with feedItemType: FeedItemType) {
