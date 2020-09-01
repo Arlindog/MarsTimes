@@ -14,6 +14,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private let viewModel = FeedViewModel()
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self?.activityIndicator.startAnimating()
                 } else {
                     self?.activityIndicator.stopAnimating()
+                    self?.refreshControl.endRefreshing()
                 }
             }
         }
@@ -58,6 +60,13 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         feedTableView.dataSource = self
         feedTableView.register(UINib(nibName: ArticleFeedCell.identifier, bundle: nil),
                                forCellReuseIdentifier: ArticleFeedCell.identifier)
+
+        feedTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshFeed), for: .valueChanged)
+    }
+
+    @objc private func refreshFeed() {
+        viewModel.loadFeed(type: .refresh)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

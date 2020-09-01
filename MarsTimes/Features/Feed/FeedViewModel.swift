@@ -23,8 +23,13 @@ class FeedViewModel {
         self.feedService = feedService
     }
 
-    func loadFeed() {
-        isLoadingFeed?(true)
+    func loadFeed(type: RequestType = .standard) {
+        switch type {
+        case .standard:
+            isLoadingFeed?(true)
+        default:
+            break
+        }
         feedService.fetchFeed { [weak self] result in
             self?.isLoadingFeed?(false)
             switch result {
