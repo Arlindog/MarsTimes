@@ -13,9 +13,16 @@ typealias LanguageCache = [String: String]
 class Translator {
     static let shared = Translator()
 
+    private let languageManager: LanguageManager
     var languageCaches: [Language: LanguageCache] = [:]
 
+    init(languageManager: LanguageManager = .shared) {
+        self.languageManager = languageManager
+    }
+
     func translate(string: String, to language: Language) -> String {
+        guard language != languageManager.defaultLanguage else { return string }
+
         let lineComponents = string.components(separatedBy: .newlines)
         return lineComponents
             .map { line in

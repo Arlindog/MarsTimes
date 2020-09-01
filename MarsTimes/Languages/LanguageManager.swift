@@ -14,6 +14,7 @@ extension Notification.Name {
 
 class LanguageManager {
     static let shared = LanguageManager()
+    let defaultLanguage: Language = .english
 
     private(set) var currentLanguage: Language
 

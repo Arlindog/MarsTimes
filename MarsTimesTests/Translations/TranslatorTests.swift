@@ -45,4 +45,10 @@ class TranslatorTests: XCTestCase {
         let translation = Translator.shared.translate(string: "R4lph w3nt f0r a run with B0bb3rt.", to: .martian)
         XCTAssertEqual(translation, target)
     }
+
+    func testTranlationToDefaultLanaguage() {
+        let target = "This string needs no translation"
+        let translation = Translator.shared.translate(string: target, to: .english)
+        XCTAssertEqual(target, translation)
+    }
 }
