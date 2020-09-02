@@ -35,6 +35,7 @@
 		5F134D0124FEBA4E00FA195B /* SettingGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134D0024FEBA4E00FA195B /* SettingGroup.swift */; };
 		5F134D0324FEBA9C00FA195B /* LanguageSettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134D0224FEBA9C00FA195B /* LanguageSettingsHeaderView.swift */; };
 		5F134D0624FEBD3800FA195B /* ActionableSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134D0524FEBD3800FA195B /* ActionableSettingItem.swift */; };
+		5F1E102124FEDADD00812163 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E102024FEDADD00812163 /* RequestState.swift */; };
 		5FDB323224FB664D00D822C6 /* TranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDB323124FB664D00D822C6 /* TranslatorTests.swift */; };
 		5FE5D4D024F9960F00DBC06B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */; };
 		5FE5D4D724F9960F00DBC06B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE5D4D524F9960F00DBC06B /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		5F134D0024FEBA4E00FA195B /* SettingGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGroup.swift; sourceTree = "<group>"; };
 		5F134D0224FEBA9C00FA195B /* LanguageSettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingsHeaderView.swift; sourceTree = "<group>"; };
 		5F134D0524FEBD3800FA195B /* ActionableSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionableSettingItem.swift; sourceTree = "<group>"; };
+		5F1E102024FEDADD00812163 /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		5FDB323124FB664D00D822C6 /* TranslatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorTests.swift; sourceTree = "<group>"; };
 		5FE5D4CC24F9960F00DBC06B /* MarsTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE5D4CF24F9960F00DBC06B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				5FE5D50E24FB10AD00DBC06B /* LocalProvider.swift */,
 				5FE5D51724FB25ED00DBC06B /* Request.swift */,
 				5F134CE124FEA87E00FA195B /* RequestType.swift */,
+				5F1E102024FEDADD00812163 /* RequestState.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				5FE5D50F24FB10AD00DBC06B /* LocalProvider.swift in Sources */,
 				5F134D0624FEBD3800FA195B /* ActionableSettingItem.swift in Sources */,
 				5F134CC324FD6ACB00FA195B /* Martian.swift in Sources */,
+				5F1E102124FEDADD00812163 /* RequestState.swift in Sources */,
 				5F134CF224FEB3FD00FA195B /* LanguageSettingsItem.swift in Sources */,
 				5FE5D50924FB0DB400DBC06B /* Provider.swift in Sources */,
 				5FE5D4FD24FB0D0F00DBC06B /* FeedViewModel.swift in Sources */,

@@ -6,14 +6,16 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class ArticleItemViewModel: ImageFeedItem {
     let cellIdentifier = ArticleFeedCell.identifier
 
     private let article: Article
     private let imageService: ImageServicing
-    private(set) var image: UIImage?
+    private let imageRelay = BehaviorRelay<UIImage?>(value: nil)
+    private let requestState = BehaviorRelay<RequestState>(value: .idle)
 
     var title: String {
         return article.title
@@ -27,8 +29,18 @@ class ArticleItemViewModel: ImageFeedItem {
         return article.body
     }
 
-    var imageUpdater: ((UIImage?) -> Void)? = nil
-    var isLoadingImage: ((Bool) -> Void)? = nil
+    var imageDriver: Driver<UIImage?> {
+        return imageRelay.asDriver()
+    }
+
+    var image: UIImage? {
+        return imageRelay.value
+    }
+
+    var isLoadingDriver: Driver<Bool> {
+        return requestState.asDriver()
+            .map { $0 == .loading }
+    }
 
     init(article: Article,
          imageService: ImageServicing = ImageService.shared) {
@@ -38,11 +50,10 @@ class ArticleItemViewModel: ImageFeedItem {
 
     func loadImage() {
         guard let topImageInfo = article.topImageInfo else { return }
-        isLoadingImage?(true)
+        requestState.accept(.loading)
         imageService.loadImage(url: topImageInfo.url) { [weak self] (image) in
-            self?.isLoadingImage?(false)
-            self?.image = image
-            self?.imageUpdater?(image)
+            self?.requestState.accept(.loaded)
+            self?.imageRelay.accept(image)
         }
     }
 }

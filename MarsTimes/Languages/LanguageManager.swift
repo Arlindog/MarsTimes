@@ -6,26 +6,26 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import Foundation
-
-extension Notification.Name {
-    static let currentLanguageChanged = Notification.Name("currentLanguageChanged")
-}
+import RxSwift
+import RxCocoa
 
 class LanguageManager {
     static let shared = LanguageManager()
     let defaultLanguage: Language = .english
 
-    private(set) var currentLanguage: Language
+    private let currentLanguageRelay: BehaviorRelay<Language>
+
+    var currentLanguageObservable: Observable<Language> {
+        return currentLanguageRelay.asObservable()
+    }
 
     private init() {
-        currentLanguage = UserDefaults.standard.currentLanguage ?? .english
+        currentLanguageRelay = .init(value: UserDefaults.standard.currentLanguage ?? .english)
     }
 
     func updateCurrentLanage(to language: Language) {
-        guard currentLanguage != language else { return }
-        currentLanguage = language
+        guard currentLanguageRelay.value != language else { return }
+        currentLanguageRelay.accept(language)
         UserDefaults.standard.currentLanguage = language
-        NotificationCenter.default.post(name: .currentLanguageChanged, object: nil)
     }
 }

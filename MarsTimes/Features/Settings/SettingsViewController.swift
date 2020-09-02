@@ -58,6 +58,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectItem(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }

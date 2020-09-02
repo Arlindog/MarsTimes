@@ -6,55 +6,50 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var feedTableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
+    private let disposeBag = DisposeBag()
     private let viewModel = FeedViewModel()
     private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         viewModel.loadFeed()
     }
 
     private func setup() {
-        setupViewModel()
+        setupBindings()
         setupTableView()
         setupNavigationBar()
     }
 
-    private func setupViewModel() {
-        viewModel.reloadFeed = { [weak self] in
-            DispatchQueue.main.async { [weak self] in
+    private func setupBindings() {
+        viewModel.reloadFeedDriver
+            .drive(onNext: { [weak self] in
                 self?.feedTableView.reloadData()
-            }
-        }
+            })
+            .disposed(by: disposeBag)
 
-        viewModel.isLoadingFeed = { [weak self] isLoading in
-            DispatchQueue.main.async { [weak self] in
-                if isLoading {
-                    self?.activityIndicator.startAnimating()
-                } else {
-                    self?.activityIndicator.stopAnimating()
-                    self?.refreshControl.endRefreshing()
-                }
-            }
-        }
+        viewModel.isLoadingFeedDriver
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
 
-        viewModel.openFeedItem = { [weak self] feedItemType in
-            DispatchQueue.main.async { [weak self] in
-                self?.presentFeedItem(with: feedItemType)
-            }
-        }
+        viewModel.isLoadingFeedDriver
+            .drive(refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+
+        viewModel.openFeedItemSignal
+            .emit(onNext: { [weak self] in
+                self?.presentFeedItem(with: $0)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func setupNavigationBar() {

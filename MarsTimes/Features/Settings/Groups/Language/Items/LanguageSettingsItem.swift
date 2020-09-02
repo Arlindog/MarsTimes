@@ -6,7 +6,7 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import Foundation
+import RxCocoa
 
 class LanguageSettingsItem: ActionableSettingItem {
     let cellIdentifier: String = LanguageSettingCell.identifier
@@ -14,30 +14,23 @@ class LanguageSettingsItem: ActionableSettingItem {
     let language: Language
     private let languageManager: LanguageManager
 
-    var updateSelectedState: ((Bool) -> Void)? = nil
-
     var title: String {
         return language.rawValue
     }
 
-    var isSelected: Bool {
-        return languageManager.currentLanguage == language
+    var isSelectedDriver: Driver<Bool> {
+        return languageManager.currentLanguageObservable
+            .map { [weak self] in
+                guard let self = self else { return false }
+                return $0 == self.language
+            }
+        .asDriver(onErrorJustReturn: false)
     }
 
     init(language: Language,
          languageManager: LanguageManager) {
         self.language = language
         self.languageManager = languageManager
-        setup()
-    }
-
-    private func setup() {
-        NotificationCenter.default.addObserver(
-            forName: .currentLanguageChanged,
-            object: nil,
-            queue: .main) { [weak self] _ in
-                self?.updateSelectedState?(self?.isSelected ?? false)
-        }
     }
 
     func didSelectItem() {

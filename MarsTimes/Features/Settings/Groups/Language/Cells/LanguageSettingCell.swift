@@ -6,18 +6,23 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
 class LanguageSettingCell: UITableViewCell, SettingCell {
 
     @IBOutlet var selectionIndicatorView: UIView!
     @IBOutlet var titleLabel: UILabel!
 
-    weak var languageItem: LanguageSettingsItem?
+    private var disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
 
     private func setup() {
@@ -26,24 +31,16 @@ class LanguageSettingCell: UITableViewCell, SettingCell {
 
     func configure(with settingItem: SettingItem) {
         guard let languageItem = settingItem as? LanguageSettingsItem else { return }
-        self.languageItem = languageItem
         titleLabel.text = languageItem.title
-        updateSelectionColor(isSelected: languageItem.isSelected)
 
-        languageItem.updateSelectedState = { [weak self] isSelected in
-            self?.updateSelectionColor(isSelected: isSelected)
-        }
+        languageItem.isSelectedDriver
+            .drive(onNext: { [weak self] in
+                self?.updateSelectionColor(isSelected: $0)
+            })
+            .disposed(by: disposeBag)
     }
 
     func updateSelectionColor(isSelected: Bool) {
         selectionIndicatorView.backgroundColor = isSelected ? .lightGray : .clear
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        if highlighted {
-            selectionIndicatorView.backgroundColor = .lightGray
-        } else {
-            updateSelectionColor(isSelected: languageItem?.isSelected ?? false)
-        }
     }
 }

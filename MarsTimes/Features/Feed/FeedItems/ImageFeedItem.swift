@@ -9,5 +9,6 @@
 import UIKit
 
 protocol ImageFeedItem: FeedItem {
+    var image: UIImage? { get }
     func loadImage()
 }

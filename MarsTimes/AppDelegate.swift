@@ -12,10 +12,30 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setup()
+        return true
+    }
+
+    func setup() {
+        configureTheme()
+
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootViewController = UINavigationController(rootViewController: FeedViewController())
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
-        return true
+    }
+
+    private func configureTheme() {
+        let standard = UINavigationBarAppearance()
+        let button = UIBarButtonItemAppearance(style: .done)
+        button.normal.titleTextAttributes = [.foregroundColor: UIColor.black]
+        standard.buttonAppearance = button
+
+        let done = UIBarButtonItemAppearance(style: .done)
+        done.normal.titleTextAttributes = [.foregroundColor: UIColor.black]
+        standard.doneButtonAppearance = done
+
+        UINavigationBar.appearance().tintColor = UIColor.black
+        UINavigationBar.appearance().standardAppearance = standard
     }
 }

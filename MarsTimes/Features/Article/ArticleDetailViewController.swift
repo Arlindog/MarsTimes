@@ -6,7 +6,8 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class ArticleDetailViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet var titleContainerView: UIView!
     @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
 
+    private let disposeBag = DisposeBag()
     var viewModel: ArticleItemViewModel!
 
     override func viewDidLoad() {
@@ -23,18 +25,27 @@ class ArticleDetailViewController: UIViewController {
         setup()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard let image = articleImageView.image else { return }
+        let ratio = image.size.width / image.size.height
+        let newHeight = articleImageView.frame.width / ratio
+        imageHeightConstraint.constant = newHeight
+    }
+
     private func setup() {
-        setupViewModel()
+        setupBindings()
         setupViews()
         setupNavigationBar()
     }
 
-    private func setupViewModel() {
-        articleImageView.image = viewModel.image
-        updateImageViewHeight(with: viewModel.image)
-
+    private func setupBindings() {
         titleLabel.text = viewModel.title
         bodyLabel.text = viewModel.body
+
+        viewModel.imageDriver
+            .drive(articleImageView.rx.image)
+            .disposed(by: disposeBag)
     }
 
     private func setupViews() {
@@ -53,13 +64,5 @@ class ArticleDetailViewController: UIViewController {
     @objc private func openSettings() {
         let settingsViewController = SettingsViewController()
         navigationController?.pushViewController(settingsViewController, animated: true)
-    }
-
-    private func updateImageViewHeight(with image: UIImage?) {
-        guard let image = image else { return }
-        let ratio = image.size.width / image.size.height
-        let newHeight = articleImageView.frame.width / ratio
-        imageHeightConstraint.constant = newHeight
-        view.layoutIfNeeded()
     }
 }

@@ -6,7 +6,8 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class ArticleFeedCell: UITableViewCell, FeedCell {
     @IBOutlet var articleImageView: UIImageView!
@@ -14,14 +15,20 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
     @IBOutlet var previewLabel: UILabel!
     @IBOutlet var titleContainerView: UIView!
     @IBOutlet var previewContainerView: UIView!
-    @IBOutlet weak var readMoreLabel: UILabel!
+    @IBOutlet var readMoreLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     private var imageHeightConstraint: NSLayoutConstraint?
+    private var disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
 
     private func setup() {
@@ -39,22 +46,17 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
         guard let viewModel = feedItem as? ArticleItemViewModel else { return }
         titleLabel.text = viewModel.title
         previewLabel.text = viewModel.preview
-        viewModel.imageUpdater = { [weak self] image in
-            DispatchQueue.main.async { [weak self] in
+
+        viewModel.imageDriver
+            .drive(onNext: { [weak self] image in
                 self?.articleImageView.image = image
                 self?.updateImageViewHeight(with: image)
-            }
-        }
+            })
+            .disposed(by: disposeBag)
 
-        viewModel.isLoadingImage = { [weak self] isLoading in
-            DispatchQueue.main.async { [weak self] in
-                if isLoading {
-                    self?.activityIndicator.startAnimating()
-                } else {
-                    self?.activityIndicator.stopAnimating()
-                }
-            }
-        }
+        viewModel.isLoadingDriver
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
     }
 
     private func updateImageViewHeight(with image: UIImage?) {
@@ -66,6 +68,7 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
             imageHeightConstraint.constant = newHeight
         } else {
             imageHeightConstraint = articleImageView.heightAnchor.constraint(equalToConstant: newHeight)
+            imageHeightConstraint?.priority = .defaultHigh
             imageHeightConstraint?.isActive = true
         }
 
