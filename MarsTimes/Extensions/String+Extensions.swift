@@ -33,8 +33,13 @@ extension String {
             if character.isPunctuation {
                 // Check if the `.` is part of an abbreviation, if it is skip adding the punctuaiton and break from the loop
                 if character == ".",
+                    // If last character in the string will be the period
+                    index > 0,
+                    // If the next character is not the last character
                     index + 1 < reversed.count,
+                    // and the next chatacyer is a letter
                     reversed[reversed.index(reversed.startIndex, offsetBy: index + 1)].isLetter {
+                        // the `.` is singaling an abbreviation
                         break
                     }
                 punctuations.append(character)

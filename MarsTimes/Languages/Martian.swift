@@ -35,15 +35,13 @@ struct Martian: LanguageType {
             transformedString = transformedString.capitalized
         }
 
-        // Maintain Punctuation
-        if let firstCharacter = string.first,
-            firstCharacter.isPunctuation {
-            transformedString.insert(firstCharacter, at: transformedString.startIndex)
+        // Maintain Punctuations
+        if let proceedingPunctuations = string.proceedingPunctuations {
+            transformedString = "\(String(proceedingPunctuations))\(transformedString)"
         }
 
-        if let lastCharacter = string.last,
-            lastCharacter.isPunctuation {
-            transformedString.insert(lastCharacter, at: transformedString.endIndex)
+        if let trailingPunctuations = string.trailingPunctuations {
+            transformedString = "\(transformedString)\(String(trailingPunctuations))"
         }
 
         return transformedString

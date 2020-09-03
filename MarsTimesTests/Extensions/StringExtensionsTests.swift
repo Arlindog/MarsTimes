@@ -29,4 +29,9 @@ class StringExtensionsTests: XCTestCase {
         let punctuations = "hey Dr D.,".trailingPunctuations
         XCTAssertEqual(String(punctuations ?? []), ",")
     }
+
+    func testTrailingPunctuationsWithComma() {
+        let punctuations = "”Hey,”".trailingPunctuations
+        XCTAssertEqual(String(punctuations ?? []), ",”")
+    }
 }

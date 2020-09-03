@@ -51,4 +51,11 @@ class TranslatorTests: XCTestCase {
         let translation = Translator.shared.translate(string: target, to: .english)
         XCTAssertEqual(target, translation)
     }
+
+    func testTranslationWithCommas() {
+        let string = "“omicsophy,”"
+        let target = "“boinga,”"
+        let translation = Translator.shared.translate(string: string, to: .martian)
+        XCTAssertEqual(target, translation)
+    }
 }
