@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 
 class ArticleFeedCell: UITableViewCell, FeedCell {
+    private struct Constants {
+        static let readMoreTitle: String = "Read More →"
+    }
+
     @IBOutlet var articleImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var previewLabel: UILabel!
@@ -36,16 +40,21 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
         titleContainerView.layer.borderColor = UIColor.lightGray.cgColor
         previewContainerView.layer.borderWidth = 3
         previewContainerView.layer.borderColor = UIColor.lightGray.cgColor
-
-        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
-        previewLabel.font = .preferredFont(forTextStyle: .body)
-        readMoreLabel.font = .preferredFont(forTextStyle: .footnote)
     }
 
     func configure(with feedItem: FeedItem) {
         guard let viewModel = feedItem as? ArticleItemViewModel else { return }
-        titleLabel.text = viewModel.title
-        previewLabel.text = viewModel.preview
+        viewModel.title
+            .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.preview
+            .drive(previewLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        Constants.readMoreTitle.localized()
+            .drive(readMoreLabel.rx.text)
+            .disposed(by: disposeBag)
 
         viewModel.imageDriver
             .drive(onNext: { [weak self] image in
@@ -71,7 +80,5 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
             imageHeightConstraint?.priority = .defaultHigh
             imageHeightConstraint?.isActive = true
         }
-
-        layoutIfNeeded()
     }
 }

@@ -17,16 +17,16 @@ class ArticleItemViewModel: ImageFeedItem {
     private let imageRelay = BehaviorRelay<UIImage?>(value: nil)
     private let requestState = BehaviorRelay<RequestState>(value: .idle)
 
-    var title: String {
-        return article.title
+    var title: Driver<String> {
+        return article.title.localized()
     }
 
-    var preview: String {
-        return "\(article.body.split(separator: " ").prefix(11).joined(separator: " "))..."
+    var preview: Driver<String> {
+        return "\(article.body.split(separator: " ").prefix(11).joined(separator: " "))…".localized()
     }
 
-    var body: String {
-        return article.body
+    var body: Driver<String> {
+        return article.body.localized()
     }
 
     var imageDriver: Driver<UIImage?> {

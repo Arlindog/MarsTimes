@@ -15,8 +15,8 @@ class LanguageManager {
 
     private let currentLanguageRelay: BehaviorRelay<Language>
 
-    var currentLanguageObservable: Observable<Language> {
-        return currentLanguageRelay.asObservable()
+    var currentLanguageDriver: Driver<Language> {
+        return currentLanguageRelay.asDriver()
     }
 
     private init() {
@@ -27,5 +27,26 @@ class LanguageManager {
         guard currentLanguageRelay.value != language else { return }
         currentLanguageRelay.accept(language)
         UserDefaults.standard.currentLanguage = language
+    }
+
+    func localize(_ string: String) -> String {
+        return Translator.shared.translate(string: string, to: currentLanguageRelay.value)
+    }
+
+    func localize(_ string: String) -> Driver<String> {
+        return currentLanguageDriver
+            .map {
+                Translator.shared.translate(string: string, to: $0)
+            }
+    }
+}
+
+extension String {
+    func localized() -> String {
+        return LanguageManager.shared.localize(self)
+    }
+
+    func localized() -> Driver<String> {
+        return LanguageManager.shared.localize(self)
     }
 }

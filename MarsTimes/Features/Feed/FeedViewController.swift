@@ -53,8 +53,18 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     private func setupNavigationBar() {
-        let settingsItem = UIBarButtonItem(title: "Settings", style: .done, target: self, action: #selector(openSettings))
+        let settingsItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(openSettings))
+        "Settings".localized()
+            .drive(settingsItem.rx.title)
+            .disposed(by: disposeBag)
+
         navigationItem.rightBarButtonItem = settingsItem
+
+        let backBarButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(navigationController?.popViewController(animated:)))
+        navigationItem.backBarButtonItem = backBarButton
+        "Back".localized()
+            .drive(backBarButton.rx.title)
+            .disposed(by: disposeBag)
     }
 
     private func setupTableView() {

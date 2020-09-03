@@ -19,12 +19,11 @@ class LanguageSettingsItem: ActionableSettingItem {
     }
 
     var isSelectedDriver: Driver<Bool> {
-        return languageManager.currentLanguageObservable
+        return languageManager.currentLanguageDriver
             .map { [weak self] in
                 guard let self = self else { return false }
                 return $0 == self.language
             }
-        .asDriver(onErrorJustReturn: false)
     }
 
     init(language: Language,

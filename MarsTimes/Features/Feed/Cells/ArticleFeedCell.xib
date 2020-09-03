@@ -16,11 +16,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ov7-5f-G5w" userLabel="PreviewContainerView">
-                        <rect key="frame" x="72.5" y="54.5" width="312.5" height="34"/>
+                        <rect key="frame" x="84.5" y="54.5" width="300.5" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At the age of 68 he is ready for the next..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUI-jT-PVH">
-                                <rect key="frame" x="8" y="8" width="296.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="8" y="8" width="284.5" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -41,11 +41,11 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zo-Wd-hri" userLabel="TitleContainerView">
-                        <rect key="frame" x="8" y="8" width="313.5" height="36.5"/>
+                        <rect key="frame" x="8" y="8" width="296" height="36.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Larry Bird comes out of retirement!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUV-bt-mij">
-                                <rect key="frame" x="8" y="8" width="297.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <rect key="frame" x="8" y="8" width="280" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -59,15 +59,15 @@
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="test_feed_image" translatesAutoresizingMaskIntoConstraints="NO" id="DnX-PK-9fI">
-                        <rect key="frame" x="16" y="104.5" width="361" height="101"/>
+                        <rect key="frame" x="16" y="104.5" width="361" height="104.5"/>
                     </imageView>
                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="A0Q-PR-9nZ">
                         <rect key="frame" x="186.5" y="96.5" width="20" height="20"/>
                         <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read More → " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9h-c6-eKF">
-                        <rect key="frame" x="285.5" y="221.5" width="99.5" height="19.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                        <rect key="frame" x="301" y="225" width="84" height="16"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -79,7 +79,7 @@
                     <constraint firstItem="C2C-ag-WwJ" firstAttribute="top" secondItem="P9h-c6-eKF" secondAttribute="bottom" constant="8" id="FHQ-mw-C44"/>
                     <constraint firstItem="A0Q-PR-9nZ" firstAttribute="top" secondItem="Ov7-5f-G5w" secondAttribute="bottom" constant="8" id="Gz2-tf-mpB"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DnX-PK-9fI" secondAttribute="trailing" constant="16" id="I1O-AM-zw9"/>
-                    <constraint firstItem="Ov7-5f-G5w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mbz-7W-2Jl" secondAttribute="leading" constant="16" id="MIX-mh-OdP"/>
+                    <constraint firstItem="Ov7-5f-G5w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mbz-7W-2Jl" secondAttribute="leading" constant="32" id="MIX-mh-OdP"/>
                     <constraint firstItem="C2C-ag-WwJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="A0Q-PR-9nZ" secondAttribute="bottom" constant="8" id="NMv-cQ-ovw"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Zo-Wd-hri" secondAttribute="trailing" constant="16" id="RsN-7i-fZn"/>
                     <constraint firstItem="DnX-PK-9fI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mbz-7W-2Jl" secondAttribute="leading" constant="16" id="Utl-R4-0RR"/>

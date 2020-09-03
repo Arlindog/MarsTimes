@@ -15,18 +15,9 @@ class LanguageSettingCell: UITableViewCell, SettingCell {
 
     private var disposeBag = DisposeBag()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setup()
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
-    }
-
-    private func setup() {
-        titleLabel.font = .preferredFont(forTextStyle: .body)
     }
 
     func configure(with settingItem: SettingItem) {

@@ -40,8 +40,13 @@ class ArticleDetailViewController: UIViewController {
     }
 
     private func setupBindings() {
-        titleLabel.text = viewModel.title
-        bodyLabel.text = viewModel.body
+        viewModel.title
+            .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.body
+            .drive(bodyLabel.rx.text)
+            .disposed(by: disposeBag)
 
         viewModel.imageDriver
             .drive(articleImageView.rx.image)
@@ -51,13 +56,14 @@ class ArticleDetailViewController: UIViewController {
     private func setupViews() {
         titleContainerView.layer.borderWidth = 3
         titleContainerView.layer.borderColor = UIColor.lightGray.cgColor
-
-        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
-        bodyLabel.font = .preferredFont(forTextStyle: .body)
     }
 
     private func setupNavigationBar() {
-        let settingsItem = UIBarButtonItem(title: "Settings", style: .done, target: self, action: #selector(openSettings))
+        let settingsItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(openSettings))
+        "Settings".localized()
+            .drive(settingsItem.rx.title)
+            .disposed(by: disposeBag)
+
         navigationItem.rightBarButtonItem = settingsItem
     }
 

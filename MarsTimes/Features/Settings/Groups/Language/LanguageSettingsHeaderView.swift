@@ -6,18 +6,19 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
 class LanguageSettingsHeaderView: UITableViewHeaderFooterView {
+
+    private let disposeBag = DisposeBag()
 
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .caption1)
+        label.font = .preferredFont(forTextStyle: .body)
         label.textColor = .black
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
-        label.text = "Languages"
         return label
     }()
 
@@ -32,12 +33,17 @@ class LanguageSettingsHeaderView: UITableViewHeaderFooterView {
     }
 
     private func setup() {
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
 
-        [titleLabel.topAnchor.constraint(equalTo: topAnchor),
-         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
-         titleLabel.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor)
+        [titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+         titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
+         titleLabel.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor),
+         titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
         ].forEach { $0.isActive = true }
+
+        "Languages".localized()
+            .drive(titleLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }
