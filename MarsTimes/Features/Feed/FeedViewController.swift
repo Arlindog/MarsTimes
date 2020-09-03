@@ -41,7 +41,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
 
-        viewModel.isLoadingFeedDriver
+        viewModel.isRefreshingFeedDriver
             .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
 
