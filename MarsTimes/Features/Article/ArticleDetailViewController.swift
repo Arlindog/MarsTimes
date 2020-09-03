@@ -28,8 +28,7 @@ class ArticleDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard let image = articleImageView.image else { return }
-        let ratio = image.size.width / image.size.height
-        let newHeight = articleImageView.frame.width / ratio
+        let newHeight = view.bounds.width * image.size.height / image.size.width
         imageHeightConstraint.constant = newHeight
     }
 
