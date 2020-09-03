@@ -65,12 +65,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             .disposed(by: disposeBag)
 
         navigationItem.rightBarButtonItem = settingsItem
-
-        let backBarButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(navigationController?.popViewController(animated:)))
-        navigationItem.backBarButtonItem = backBarButton
-        "Back".localized()
-            .drive(backBarButton.rx.title)
-            .disposed(by: disposeBag)
     }
 
     private func setupTableView() {

@@ -64,6 +64,16 @@ class ArticleDetailViewController: UIViewController {
             .disposed(by: disposeBag)
 
         navigationItem.rightBarButtonItem = settingsItem
+
+        let backBarButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(dismissArticleDetail))
+        navigationItem.leftBarButtonItem = backBarButton
+        "← Back".localized()
+            .drive(backBarButton.rx.title)
+            .disposed(by: disposeBag)
+    }
+
+    @objc private func dismissArticleDetail() {
+        navigationController?.popViewController(animated: true)
     }
 
     @objc private func openSettings() {

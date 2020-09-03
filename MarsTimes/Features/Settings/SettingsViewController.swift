@@ -6,17 +6,24 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var settingTableView: UITableView!
 
+    private let disposeBag = DisposeBag()
     private let viewModel = SettingsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+
+    private func setup() {
         setupTableView()
+        setupNavigationBar()
     }
 
     private func setupTableView() {
@@ -31,6 +38,18 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
         settingTableView.register(LanguageSettingsHeaderView.self,
                                   forHeaderFooterViewReuseIdentifier: LanguageSettingsHeaderView.identifier)
+    }
+
+    private func setupNavigationBar() {
+        let backBarButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(dismissSettings))
+        navigationItem.leftBarButtonItem = backBarButton
+        "← Back".localized()
+            .drive(backBarButton.rx.title)
+            .disposed(by: disposeBag)
+    }
+
+    @objc private func dismissSettings() {
+        navigationController?.popViewController(animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
