@@ -33,6 +33,11 @@ class FeedViewModel {
             .map { $0 == .refreshing }
     }
 
+    var hideErrorViewsDriver: Driver<Bool> {
+        return requestState.asDriver()
+            .map { $0 != .error }
+    }
+
     var openFeedItemSignal: Signal<FeedItemType> {
         return openFeedItemRelay.asSignal()
     }
@@ -84,15 +89,16 @@ class FeedViewModel {
             requestState.accept(.refreshing)
         }
         feedService.fetchFeed { [weak self] result in
-            self?.requestState.accept(.loaded)
             switch result {
             case .success(let articles):
+                self?.requestState.accept(.loaded)
                 let items = articles.map {
                     ArticleItemViewModel(article: $0)
                 }
                 self?.feedItemRelay.accept(items)
             case .failure(let error):
                 print("Error loading feed: \(error)")
+                self?.requestState.accept(.error)
             }
         }
     }

@@ -13,6 +13,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet var feedTableView: UITableView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var reloadFeedButton: UIButton!
 
     private let disposeBag = DisposeBag()
     private let viewModel = FeedViewModel()
@@ -27,6 +29,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     private func setup() {
         setupBindings()
         setupTableView()
+        setupErrorViews()
         setupNavigationBar()
     }
 
@@ -44,6 +47,15 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         viewModel.isRefreshingFeedDriver
             .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
+
+        viewModel.hideErrorViewsDriver
+            .drive(onNext: { [weak self] in
+                self?.reloadFeedButton.isHidden = $0
+                self?.errorLabel.isHidden = $0
+                self?.feedTableView.isHidden = !$0
+            })
+            .disposed(by: disposeBag)
+
 
         viewModel.openFeedItemSignal
             .emit(onNext: { [weak self] in
@@ -67,6 +79,19 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navigationItem.rightBarButtonItem = settingsItem
     }
 
+    private func setupErrorViews() {
+        "Something went wrong".localized()
+            .drive(errorLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        "Reload Feed".localized()
+            .drive(reloadFeedButton.rx.title())
+            .disposed(by: disposeBag)
+
+        reloadFeedButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        reloadFeedButton.addTarget(self, action: #selector(reloadFeed), for: .touchUpInside)
+    }
+
     private func setupTableView() {
         feedTableView.delegate = self
         feedTableView.dataSource = self
@@ -75,6 +100,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         feedTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshFeed), for: .valueChanged)
+    }
+
+    @objc private func reloadFeed() {
+        viewModel.loadFeed()
     }
 
     @objc private func refreshFeed() {

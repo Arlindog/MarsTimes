@@ -10,7 +10,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="MarsTimes" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="Ccj-d4-diw" id="9CK-Eh-6ca"/>
+                <outlet property="errorLabel" destination="pND-U0-0Vm" id="Gzn-7U-rsY"/>
                 <outlet property="feedTableView" destination="b1O-I6-NKb" id="pfX-wd-HqN"/>
+                <outlet property="reloadFeedButton" destination="9yC-zB-4qT" id="fPo-oW-sf8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,14 +29,34 @@
                     <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                     <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yC-zB-4qT">
+                    <rect key="frame" x="8" y="476.5" width="398" height="33"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                    <state key="normal" title="Reload Feed"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pND-U0-0Vm">
+                    <rect key="frame" x="112" y="448" width="190.5" height="20.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pND-U0-0Vm" secondAttribute="trailing" constant="8" id="0ys-sB-xcG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9yC-zB-4qT" secondAttribute="trailing" constant="8" id="1RD-V8-VfF"/>
+                <constraint firstItem="pND-U0-0Vm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="3tg-QZ-osz"/>
+                <constraint firstItem="pND-U0-0Vm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="10" id="5MQ-UL-QEW"/>
                 <constraint firstItem="b1O-I6-NKb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5Uq-aw-VF4"/>
+                <constraint firstItem="pND-U0-0Vm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="9dr-av-woC"/>
                 <constraint firstItem="Ccj-d4-diw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Bd6-bZ-ZRA"/>
                 <constraint firstItem="Ccj-d4-diw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="C9z-3G-nRb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b1O-I6-NKb" secondAttribute="trailing" id="ert-yv-oL5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9yC-zB-4qT" secondAttribute="bottom" constant="8" id="hAd-De-dDQ"/>
+                <constraint firstItem="pND-U0-0Vm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kit-jo-wBh"/>
                 <constraint firstAttribute="bottom" secondItem="b1O-I6-NKb" secondAttribute="bottom" id="llV-dE-IQ9"/>
+                <constraint firstItem="9yC-zB-4qT" firstAttribute="top" secondItem="pND-U0-0Vm" secondAttribute="bottom" constant="8" id="yMd-i2-nyg"/>
+                <constraint firstItem="9yC-zB-4qT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="zgA-Xr-fK7"/>
                 <constraint firstItem="b1O-I6-NKb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zjL-hZ-XVy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
