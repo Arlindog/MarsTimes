@@ -6,9 +6,10 @@
 //  Copyright © 2020 DevByArlindo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
 protocol ImageFeedItem: FeedItem {
     var image: UIImage? { get }
+    var imageChangedObservable: Observable<Void> { get }
     func loadImage()
 }

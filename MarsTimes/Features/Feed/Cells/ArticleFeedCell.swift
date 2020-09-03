@@ -14,6 +14,8 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
         static let readMoreTitle: String = "Read More →"
     }
 
+    @IBOutlet var imageContainerView: UIView!
+    @IBOutlet var reloadImageButton: UIButton!
     @IBOutlet var articleImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var previewLabel: UILabel!
@@ -21,8 +23,9 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
     @IBOutlet var previewContainerView: UIView!
     @IBOutlet var readMoreLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
 
-    private var imageHeightConstraint: NSLayoutConstraint?
+    private let nonReusableBag = DisposeBag()
     private var disposeBag = DisposeBag()
 
     override func awakeFromNib() {
@@ -40,10 +43,18 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
         titleContainerView.layer.borderColor = UIColor.lightGray.cgColor
         previewContainerView.layer.borderWidth = 3
         previewContainerView.layer.borderColor = UIColor.lightGray.cgColor
+        imageContainerView.layer.borderColor = UIColor.lightGray.cgColor
+
+        articleImageView.image = nil
+
+        Constants.readMoreTitle.localized()
+            .drive(readMoreLabel.rx.text)
+            .disposed(by: nonReusableBag)
     }
 
     func configure(with feedItem: FeedItem) {
         guard let viewModel = feedItem as? ArticleItemViewModel else { return }
+
         viewModel.title
             .drive(titleLabel.rx.text)
             .disposed(by: disposeBag)
@@ -52,33 +63,47 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
             .drive(previewLabel.rx.text)
             .disposed(by: disposeBag)
 
-        Constants.readMoreTitle.localized()
-            .drive(readMoreLabel.rx.text)
-            .disposed(by: disposeBag)
-
         viewModel.imageDriver
-            .drive(onNext: { [weak self] image in
-                self?.articleImageView.image = image
-                self?.updateImageViewHeight(with: image)
+            .drive(onNext: { [weak self] in
+                self?.articleImageView.image = $0
+                self?.updateImageViewHeight(with: viewModel.referenceImageRatio)
             })
             .disposed(by: disposeBag)
 
         viewModel.isLoadingDriver
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
+
+        viewModel.showImageLoadErrorState
+            .drive(rx.updateErrorState())
+            .disposed(by: disposeBag)
+
+        reloadImageButton.rx.tap
+            .subscribe(onNext: { [weak viewModel] in
+                viewModel?.loadImage()
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.loadImage()
     }
 
-    private func updateImageViewHeight(with image: UIImage?) {
-        guard let image = image else { return }
-        let ratio = image.size.width / image.size.height
-        let newHeight = articleImageView.frame.width / ratio
+    private func updateImageViewHeight(with ratio: CGFloat) {
+        guard ratio != 0 else { return }
+        let newHeight = articleImageView.bounds.width / ratio
+        imageHeightConstraint.constant = newHeight
+    }
+}
 
-        if let imageHeightConstraint = imageHeightConstraint {
-            imageHeightConstraint.constant = newHeight
-        } else {
-            imageHeightConstraint = articleImageView.heightAnchor.constraint(equalToConstant: newHeight)
-            imageHeightConstraint?.priority = .defaultHigh
-            imageHeightConstraint?.isActive = true
+fileprivate extension Reactive where Base: ArticleFeedCell {
+    func updateErrorState() -> Binder<Bool> {
+        return Binder(base) { cell, showImageLoadErrorState in
+            if showImageLoadErrorState {
+                cell.imageContainerView.layer.borderWidth = 3
+                cell.reloadImageButton.isHidden = false
+            } else {
+                cell.imageContainerView.layer.borderWidth = 0
+                cell.reloadImageButton.isHidden = true
+            }
         }
     }
 }

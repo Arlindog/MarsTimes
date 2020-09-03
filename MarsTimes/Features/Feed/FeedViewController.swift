@@ -50,6 +50,12 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 self?.presentFeedItem(with: $0)
             })
             .disposed(by: disposeBag)
+
+        viewModel.reloadFeedHeight
+            .emit(onNext: { [weak self] in
+                self?.feedTableView.performBatchUpdates({})
+            })
+            .disposed(by: disposeBag)
     }
 
     private func setupNavigationBar() {
@@ -111,11 +117,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
 
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let feedItem = viewModel.getFeedItem(at: indexPath) as? ImageFeedItem else { return }
-        feedItem.loadImage()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

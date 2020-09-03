@@ -10,10 +10,12 @@ import RxSwift
 import RxCocoa
 
 class FeedViewModel {
+    private let disposeBag = DisposeBag()
     private let feedService: FeedService
     private let feedItemRelay = BehaviorRelay<[FeedItem]>(value: [])
     private let requestState = BehaviorRelay<RequestState>(value: .idle)
     private let openFeedItemRelay = PublishRelay<FeedItemType>()
+    private let reloadFeedHeightRelay = PublishRelay<Void>()
 
     private var feedItemDriver: Driver<[FeedItem]> {
         return feedItemRelay.asDriver()
@@ -42,12 +44,36 @@ class FeedViewModel {
             .map { _ in }
     }
 
+    var reloadFeedHeight: Signal<Void> {
+        return reloadFeedHeightRelay.asSignal()
+    }
+
     var feedItemCount: Int {
         return feedItemRelay.value.count
     }
 
     init(feedService: FeedService = .shared) {
         self.feedService = feedService
+        setupBindings()
+    }
+
+    private func setupBindings() {
+        let imageItems: Observable<ImageFeedItem> = feedItemRelay.asObservable()
+            .flatMap { (feedItem) -> Observable<ImageFeedItem> in
+                Observable.from(feedItem)
+                    .compactMap { $0 as? ImageFeedItem }
+            }
+
+        imageItems
+            .flatMap { (imageFeedItem) -> Observable<Void> in
+                return imageFeedItem.imageChangedObservable
+                    // Delay the event so that the Article Cell has a chance to layout its views
+                    // before perfoming updates to the table view. This will ensure
+                    // we get the correct height for the cell.
+                    .delay(.milliseconds(100), scheduler: MainScheduler.instance)
+            }
+            .bind(to: reloadFeedHeightRelay)
+            .disposed(by: disposeBag)
     }
 
     func loadFeed(type: RequestType = .standard) {

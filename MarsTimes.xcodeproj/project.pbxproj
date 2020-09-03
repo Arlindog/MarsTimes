@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		18D3FEA008BC2EC227A2FB37 /* Pods_MarsTimesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347885D18F7BC1D7A2DD33E2 /* Pods_MarsTimesTests.framework */; };
 		5D9C78420D41560B7A8CE802 /* Pods_MarsTimes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31383DC1630AC859ECB2CAAD /* Pods_MarsTimes.framework */; };
+		5F07E4F12502C87500EC0874 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07E4F02502C87500EC0874 /* MockImageService.swift */; };
+		5F07E4F52502C95200EC0874 /* ArticleItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07E4F42502C95200EC0874 /* ArticleItemViewModelTests.swift */; };
+		5F07E4F82502CA3700EC0874 /* TestObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07E4F72502CA3700EC0874 /* TestObserving.swift */; };
+		5F07E4FA2502CFC200EC0874 /* XCTest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07E4F92502CFC200EC0874 /* XCTest+Extensions.swift */; };
 		5F134CBE24FD4EB100FA195B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CBD24FD4EB100FA195B /* String+Extensions.swift */; };
 		5F134CC124FD4F1500FA195B /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */; };
 		5F134CC324FD6ACB00FA195B /* Martian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F134CC224FD6ACB00FA195B /* Martian.swift */; };
@@ -74,6 +78,10 @@
 		31383DC1630AC859ECB2CAAD /* Pods_MarsTimes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsTimes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347885D18F7BC1D7A2DD33E2 /* Pods_MarsTimesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsTimesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		506E254768939D59C03C3C15 /* Pods-MarsTimes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsTimes.debug.xcconfig"; path = "Target Support Files/Pods-MarsTimes/Pods-MarsTimes.debug.xcconfig"; sourceTree = "<group>"; };
+		5F07E4F02502C87500EC0874 /* MockImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
+		5F07E4F42502C95200EC0874 /* ArticleItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItemViewModelTests.swift; sourceTree = "<group>"; };
+		5F07E4F72502CA3700EC0874 /* TestObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObserving.swift; sourceTree = "<group>"; };
+		5F07E4F92502CFC200EC0874 /* XCTest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Extensions.swift"; sourceTree = "<group>"; };
 		5F134CBD24FD4EB100FA195B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		5F134CC024FD4F1500FA195B /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		5F134CC224FD6ACB00FA195B /* Martian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Martian.swift; sourceTree = "<group>"; };
@@ -152,6 +160,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F07E4EF2502C86700EC0874 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				5F07E4F02502C87500EC0874 /* MockImageService.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		5F07E4F22502C92F00EC0874 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				5F07E4F32502C93B00EC0874 /* Feed */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		5F07E4F32502C93B00EC0874 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				5F07E4F42502C95200EC0874 /* ArticleItemViewModelTests.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		5F07E4F62502CA2500EC0874 /* TextExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F07E4F72502CA3700EC0874 /* TestObserving.swift */,
+				5F07E4F92502CFC200EC0874 /* XCTest+Extensions.swift */,
+			);
+			path = TextExtensions;
+			sourceTree = "<group>";
+		};
 		5F134CBC24FD4EA100FA195B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +347,8 @@
 		5FE5D4E524F9961200DBC06B /* MarsTimesTests */ = {
 			isa = PBXGroup;
 			children = (
+				5F07E4F62502CA2500EC0874 /* TextExtensions */,
+				5F07E4F22502C92F00EC0874 /* Features */,
 				5F134CBF24FD4EF900FA195B /* Extensions */,
 				5FDB323024FB663700D822C6 /* Translations */,
 				5FE5D51F24FB2E3600DBC06B /* TestBundle.swift */,
@@ -380,6 +423,7 @@
 		5FE5D51C24FB2D6500DBC06B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5F07E4EF2502C86700EC0874 /* Image */,
 				5FE5D52224FB2ED500DBC06B /* Feed */,
 			);
 			path = Services;
@@ -661,10 +705,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F07E4FA2502CFC200EC0874 /* XCTest+Extensions.swift in Sources */,
+				5F07E4F52502C95200EC0874 /* ArticleItemViewModelTests.swift in Sources */,
+				5F07E4F82502CA3700EC0874 /* TestObserving.swift in Sources */,
 				5F134CC124FD4F1500FA195B /* StringExtensionsTests.swift in Sources */,
 				5FE5D51E24FB2D8D00DBC06B /* FeedServiceTests.swift in Sources */,
 				5FDB323224FB664D00D822C6 /* TranslatorTests.swift in Sources */,
 				5FE5D52024FB2E3600DBC06B /* TestBundle.swift in Sources */,
+				5F07E4F12502C87500EC0874 /* MockImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
