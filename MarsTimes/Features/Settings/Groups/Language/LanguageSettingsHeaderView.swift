@@ -39,7 +39,7 @@ class LanguageSettingsHeaderView: UITableViewHeaderFooterView {
          titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
          titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
          titleLabel.rightAnchor.constraint(greaterThanOrEqualTo: contentView.rightAnchor),
-         titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
+         titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 50)
         ].forEach { $0.isActive = true }
 
         "Languages".localized()
