@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="441" height="405"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ov7-5f-G5w" userLabel="PreviewContainerView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ov7-5f-G5w" userLabel="PreviewContainerView" customClass="BorderedContainerView" customModule="MarsTimes" customModuleProvider="target">
                         <rect key="frame" x="132.5" y="326" width="300.5" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At the age of 68 he is ready for the next..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUI-jT-PVH">
@@ -40,7 +40,7 @@
                             <constraint firstAttribute="height" constant="3" id="jvF-uE-7xK"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zo-Wd-hri" userLabel="TitleContainerView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zo-Wd-hri" userLabel="TitleContainerView" customClass="BorderedContainerView" customModule="MarsTimes" customModuleProvider="target">
                         <rect key="frame" x="8" y="279.5" width="296" height="36.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Larry Bird comes out of retirement!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUV-bt-mij">
@@ -58,7 +58,7 @@
                             <constraint firstAttribute="bottom" secondItem="LUV-bt-mij" secondAttribute="bottom" constant="8" id="USk-PM-ut9"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="gu4-pQ-htG">
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="gu4-pQ-htG" customClass="BorderedContainerView" customModule="MarsTimes" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="425" height="200"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNa-Jq-d23">

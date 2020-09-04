@@ -34,7 +34,7 @@
                                         <constraint firstAttribute="height" constant="100" id="H8u-8g-Syz"/>
                                     </constraints>
                                 </imageView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-WU-1sy" userLabel="TitleContainerView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-WU-1sy" userLabel="TitleContainerView" customClass="BorderedContainerView" customModule="MarsTimes" customModuleProvider="target">
                                     <rect key="frame" x="8" y="108" width="299.5" height="83.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Larry Bird comes out of retirement!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crE-Xg-sxK">

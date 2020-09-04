@@ -14,7 +14,7 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet var articleImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var bodyLabel: UILabel!
-    @IBOutlet var titleContainerView: UIView!
+    @IBOutlet var titleContainerView: BorderedContainerView!
     @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
 
     private let disposeBag = DisposeBag()

@@ -14,13 +14,13 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
         static let readMoreTitle: String = "Read More →"
     }
 
-    @IBOutlet var imageContainerView: UIView!
+    @IBOutlet var imageContainerView: BorderedContainerView!
     @IBOutlet var reloadImageButton: UIButton!
     @IBOutlet var articleImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var previewLabel: UILabel!
-    @IBOutlet var titleContainerView: UIView!
-    @IBOutlet var previewContainerView: UIView!
+    @IBOutlet var titleContainerView: BorderedContainerView!
+    @IBOutlet var previewContainerView: BorderedContainerView!
     @IBOutlet var readMoreLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
@@ -39,12 +39,7 @@ class ArticleFeedCell: UITableViewCell, FeedCell {
     }
 
     private func setup() {
-        titleContainerView.layer.borderWidth = 3
-        titleContainerView.layer.borderColor = UIColor.lightGray.cgColor
-        previewContainerView.layer.borderWidth = 3
-        previewContainerView.layer.borderColor = UIColor.lightGray.cgColor
-        imageContainerView.layer.borderColor = UIColor.lightGray.cgColor
-
+        imageContainerView.layer.borderWidth = 0
         articleImageView.image = nil
 
         Constants.readMoreTitle.localized()
@@ -98,7 +93,7 @@ fileprivate extension Reactive where Base: ArticleFeedCell {
     func updateErrorState() -> Binder<Bool> {
         return Binder(base) { cell, showImageLoadErrorState in
             if showImageLoadErrorState {
-                cell.imageContainerView.layer.borderWidth = 3
+                cell.imageContainerView.layer.borderWidth = BorderedContainerView.Constants.defaultBorderWidth
                 cell.reloadImageButton.isHidden = false
             } else {
                 cell.imageContainerView.layer.borderWidth = 0
